@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif;
+        }
+
+        /* Gradient background */
+        body {
+            background: linear-gradient(135deg, #a9a9a9, #fbfdfd);
+        }
+
+        /* Shadow customization for both columns */
+        .shadow-box {
+            box-shadow: 0 4px 8px rgb(7, 7, 7); /* Default shadow */
+            
+        }
+
+        .shadow-box:hover {
+            box-shadow: 0 8px 16px rgba(9, 9, 9, 10); /* Slightly darker and bigger shadow on hover */
+        }
+
+        /* Customize these values to adjust the shadow */
+        .custom-shadow {
+            box-shadow: 0 6px 12px rgba(100, 100, 100, 10); /* Custom color and intensity */
+        }
+
+        /* Name styling: white color with shadow */
+        .name {
+            color: white;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 15);
+        }
+
+        /* Animation for the image */
+        .w3-display-container img {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        /* Keyframes for the image animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+        <!-- Left Column with shadow -->
+        <div class="w3-third">
+
+            <div class="w3-white w3-text-grey w3-card-4 shadow-box">
+                <div class="w3-display-container">
+                    <img src="Desktop\Codemify-Homework\html-css--site\blackandwhite.png" style="width:100%" alt="Avatar">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h1 class="name">Alvaro Escoto</h1>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <h3><i class="Vamo la celeste"></i>QA Automation Engineer</h3>
+                    <p><i class="PROVA"></i>ULM, Germany</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>alvaroescoto@icloud.com</p>
+                    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>+491748487909</p>
+                    <hr>
+
+                    <p class="w3-medium"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                    <p>Cypress / Node.js</p>
+                    <div class="w3-light-grey w3-round-xmedium w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
+                    </div>
+                    <p>API testing</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                            <div class="w3-center w3-text-white">80%</div>
+                        </div>
+                    </div>
+                    <p>SQL</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
+                    </div>
+                    <p>Qase.io</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+                    </div>
+                    <p>SDLC / STLC</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:85%">85%</div>
+                    </div>
+                    <p>Bash scripting</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">80%</div>
+                    </div>
+                    <p>HTML</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:60%">60%</div>
+                    </div>
+                    <br>
+
+                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                    <p>English</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:85%"></div>
+                    </div>
+                    <p>Spanish</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                    </div>
+                    <p>German</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:70%"></div>
+                    </div>
+                    <p>Italian</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:95%"></div>
+                    </div>
+                    <p>Portuguese</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                    </div>
+                    <br>
+                </div>
+            </div><br>
+
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column with shadow -->
+        <div class="w3-twothird">
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom shadow-box">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>QA Automation Engineer / delekhomes.com</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2022 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                    <p>As a Manual and Automation QA Engineer, I ensured software quality by designing and executing both manual and automated tests.
+                        I develop automated scripts to improve test coverage and identify bugs early. My role involves collaborating with teams to integrate testing into the development lifecycle and provide timely feedback to enhance product reliability.</p>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>QA Engineer / Playball</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Feb 2022 - Dec 2022</h6>
+                    <p>As a Manual QA Engineer for this IOS and Android aplication, i was in charge for testing the core functionality of the application as well as UI/UX and API, 
+                        delivering a flawless and easy-to-use  platform for people from different Countries and cultures but with the same 
+                        passion, football.  </p>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Graphic Designer / Freelancer</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i> 2010 - 2019</h6>
+                    <p>As a graphic designer, I began my career specializing in Brand Identity Design, where I developed strong visual 
+                        identities for clients and companies. After gaining experience working with design studios, I expanded my expertise 
+                        into Web Design and later transitioned into 2D and 3D animation. This allowed me to combine static and dynamic design 
+                        elements, creating engaging visual stories and interactive experiences that enhance brand communication.
+                    </p><br>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Camera Operator / Freelancer</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i> 2012 - 2021</h6>
+                    <p>As a camera operator, I’ve had the privilege of working on a variety of projects in both cinema and the commercial 
+                        industry. In commercials, I collaborated with major global brands like Apple, Coca-Cola, Jeep, and Volkswagen, bringing 
+                        their visions to life through dynamic visual storytelling. My experience in cinema spans feature films and television series, where I 
+                        contributed to the creative process by capturing visually compelling scenes and working closely with directors and cinematographers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="w3-container w3-card w3-white shadow-box">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>ESPM</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002 - 2008</h6>
+                    <p>Bachelor in Graphic Design</p>
+                    <hr>
+                </div>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>NUCT</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2009 - 2012</h6>
+                    <p>Director of Photography for cinema and television - Master Degree</p>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- End Right Column -->
+        </div>
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p>Find me on social media.</p>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/alvaro.e.deavila" target="_blank">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/alvaroescoto/" target="_blank">
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/alvaro-escoto-a3b050331" target="_blank">
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </a>
+</footer>
+
+</body>
+</html>
