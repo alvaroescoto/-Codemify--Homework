@@ -1,0 +1,61 @@
+html, body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Gradient background */
+body {
+    background: linear-gradient(135deg, #a9a9a9, #fbfdfd);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure containers expand properly */
+.w3-container {
+    overflow: auto;
+}
+
+/* Shadow customization for both columns */
+.shadow-box {
+    box-shadow: 0 4px 8px rgb(7, 7, 7); /* Default shadow */
+}
+
+.shadow-box:hover {
+    box-shadow: 0 8px 16px rgba(9, 9, 9, 10); /* Slightly darker and bigger shadow on hover */
+}
+
+/* Customize these values to adjust the shadow */
+.custom-shadow {
+    box-shadow: 0 6px 12px rgba(100, 100, 100, 10); /* Custom color and intensity */
+}
+
+/* Name styling: white color with shadow */
+.name {
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 15);
+}
+
+/* Animation for the image */
+.w3-display-container img {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1.5s forwards;
+}
+
+/* Keyframes for the image animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure the right column content doesn't get cut off */
+.w3-twothird {
+    display: flex;
+    flex-direction: column;
+}
+
+.w3-container {
+    flex-grow: 1;
+}
