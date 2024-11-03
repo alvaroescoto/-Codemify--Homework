@@ -8,7 +8,8 @@ function checkGreaterTen(num1) {
   } else {
     return "Not Greater than 10";
   }
-}
+
+
 
 console.log(checkGreaterTen(15));
 console.log(checkGreaterTen(5));

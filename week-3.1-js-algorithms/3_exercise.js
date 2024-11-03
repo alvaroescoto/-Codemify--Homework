@@ -4,11 +4,9 @@
 // Note that the three dots at the end add to the string length.
 
 function truncateString(string, num) {
-  if (string.length > num) {
-    return string.substring(0, num) + "...";
-  } else {
-    return string;
-  }
+  let result = string.substring(0,num-3)
+  return result+'...'
+  
 }
 
 console.log(truncateString("A-tisket a-tasket A green and yellow basket", 11)); // "A-tisket..."
