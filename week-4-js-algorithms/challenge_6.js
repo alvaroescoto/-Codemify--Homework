@@ -6,10 +6,10 @@
 
 
 function factorial(n) {
-    let result = 1; // Start with 1, since multiplying by 1 has no effect
+    let result = 1; 
 
     for (let i = 1; i <= n; i++) {
-        result = result * i; // Multiply result by i on each iteration
+        result = result * i; 
     }
 
     return result;

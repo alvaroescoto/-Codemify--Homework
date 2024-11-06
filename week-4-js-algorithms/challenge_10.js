@@ -2,7 +2,7 @@
 // A palindrome is a word, phrase, number, or other sequences of characters that reads the same backward or forward.
 
 function palindrome(word) {
-  let result = "";
+  let result = [];
 
   for (let i = word.length - 1; i >= 0; i--) {
     result = result + word[i];
@@ -12,10 +12,9 @@ function palindrome(word) {
   } else {
     return false;
   }
-  
 }
 
-console.log(palindrome('racecar')); // true;
+console.log(palindrome("racecar")); // true;
 console.log(palindrome("hello")); // false
 console.log(palindrome("a")); // true
 console.log(palindrome("madam")); // true
