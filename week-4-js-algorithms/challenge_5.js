@@ -1,12 +1,21 @@
 // Challenge 5: Sum of Numbers
+
 // Write a function to find the sum of all numbers in the array.
 
+// function sumNumbers(array) {
+//   let sum = 0;
+//   for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+//     sum = sum + element;
+//   }
+//   return sum;
+// }
+
+
+
+// Highest order function !!!
 function sumNumbers(array) {
-  let sum = 0;
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    sum = sum + element;
-  }
+  const sum = array.reduce((acc, current) => acc + current,0);
   return sum;
 }
 

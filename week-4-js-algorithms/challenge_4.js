@@ -27,10 +27,12 @@
 //   return result;
 // }
 
+
+// Highest order function !!!
 function findNumbersGreaterThanTen (array){
 
-    let result = array.filter (element => element > 10)
-    return result
+    return array.filter (element => element > 10)
+    
 
 }
 
@@ -38,5 +40,5 @@ function findNumbersGreaterThanTen (array){
 
 console.log(findNumbersGreaterThanTen([5, 10, 15, 20])); // [15, 20]
  console.log(findNumbersGreaterThanTen([1, 2, 3, 4, 5])); // []
-// console.log(findNumbersGreaterThanTen([10, 20, 30, 40, 50])); // [20, 30, 40, 50]
+console.log(findNumbersGreaterThanTen([10, 20, 30, 40, 50])); // [20, 30, 40, 50]
 
