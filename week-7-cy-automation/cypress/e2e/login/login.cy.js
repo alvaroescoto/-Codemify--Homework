@@ -1,5 +1,6 @@
 import homePage from "../../page_objects/home.page";
 import loginPage from "../../page_objects/login.page";
+import dashboardPage from "../../page_objects/dashboard.page";
 
 describe("Login Tests", () => {
   beforeEach(() => {
@@ -7,22 +8,23 @@ describe("Login Tests", () => {
     cy.visit("/");
   });
 
-  it("Login", () => {
+  it("Should Login", () => {
     homePage.loginButton.click();
     loginPage.login("admin@gmail.com", "DontTestMe")
-    cy.get("a p").should("have.text", "role: admin");
-    cy.get('a[href="/dashboard/user/account"] h6.MuiTypography-subtitle2').should("have.text", "Admin  Adminuk");
-    cy.wait(2000);
+    dashboardPage.roleAdmin
+    dashboardPage.nameAdmin
       
   });
 
   it("Should Logout", () => {
     homePage.loginButton.click();
     loginPage.login("admin@gmail.com", "DontTestMe")
-    cy.get("a p").should("have.text", "role: admin");
-    cy.get('a[href="/dashboard/user/account"] h6.MuiTypography-subtitle2').should("have.text", "Admin  Adminuk");
+    dashboardPage.roleAdmin
+    dashboardPage.nameAdmin
     loginPage.humanButton.first().click();
     loginPage.logoutButton.click();
+    loginPage.logoutAssert
+
 
   });
 

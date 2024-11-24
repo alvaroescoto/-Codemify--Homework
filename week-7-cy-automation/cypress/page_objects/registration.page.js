@@ -4,6 +4,12 @@ class RegistrationPage {
     get emailInput() {return cy.get('[name="email"]')}
     get passwordInput() {return cy.get('[name="password"]')} 
     get registrationButton() {return cy.get('[type="submit"]')}
+    get alreadyAccountAssert() {return cy.contains("Input data validation failed").should("be.visible")}
+    get firstNameRequiredAssert() {return cy.contains("First name required").should("be.visible")};
+    get lastNameRequiredAssert() {return cy.contains("Last name required").should("be.visible")};
+    get emailRequiredAssert() {return cy.contains("Email is required").should("be.visible")};
+    get passwordRequiredAssert() {return cy.contains("Password is required").should("be.visible")};
+
 
     registration(name, lastName, email, password){
         this.firstNameInput.type(name);
@@ -17,12 +23,3 @@ class RegistrationPage {
     
 }
 export default new RegistrationPage();
-
-
-
-
-
-
-
-
-

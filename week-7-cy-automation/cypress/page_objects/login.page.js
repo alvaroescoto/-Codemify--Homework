@@ -4,6 +4,7 @@ class LoginPage {
     get loginButton () {return cy.contains("Login")}
     get humanButton () {return cy.get('[type="button"]')}
     get logoutButton() { return cy.contains('Logout') }
+    get logoutAssert() {return cy.contains("Sign in to Delek Homes").should("be.visible");}
 
     login(email, password){
         this.emailInput.type(email);
@@ -11,15 +12,5 @@ class LoginPage {
         this.loginButton.click();
 
     }
-
 }
 export default new LoginPage();
-
-
-
-
-
-
-
-
-

@@ -3,12 +3,3 @@ class HomePage {
     get registrationButton() {return cy.get('[href="/auth/register"]')}
 }
 export default new HomePage();
-
-
-
-
-
-
-
-
-
