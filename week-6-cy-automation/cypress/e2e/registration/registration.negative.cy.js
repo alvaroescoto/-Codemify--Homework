@@ -1,4 +1,4 @@
-describe("Registration", () => {
+describe("Registration Negative", () => {
   beforeEach(() => {
     cy.visit("/");
   });

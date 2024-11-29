@@ -5,6 +5,11 @@ module.exports = defineConfig({
     baseUrl: "https://dev.delekhomes.com/",
     viewportWidth: 1400,
     viewportHeight: 1200,
+    
 
     },
+
   })
+
+
+

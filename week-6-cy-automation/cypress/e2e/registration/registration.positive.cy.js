@@ -3,7 +3,7 @@ const email = faker.internet.email()
 const password = faker.internet.password()
 
 
-describe("Registration", () => {
+describe("Registration Positive", () => {
     beforeEach(() => {
       
       cy.visit("/");
