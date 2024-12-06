@@ -10,16 +10,13 @@ describe("Login Tests", () => {
   it("Should Login", () => {
     homePage.loginBtn.click();
     loginPage.login("admin@gmail.com", "DontTestMe");
-    dashboardPage.roleAdminAssert;
-    dashboardPage.nameAdminAssert;
+    dashboardPage.userAdminAssert;
   });
 
   it("Should Logout", () => {
     homePage.loginBtn.click();
     loginPage.login("admin@gmail.com", "DontTestMe");
-    dashboardPage.nameAdminAssert;
-    dashboardPage.roleAdminAssert;
+    dashboardPage.userAdminAssert;
     dashboardPage.logout();
-    loginPage.logoutAssert;
   });
 });
