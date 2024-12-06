@@ -13,12 +13,11 @@ describe("Login Tests", () => {
     dashboardPage.roleAdminAssert;
     dashboardPage.nameAdminAssert;
   });
-  
+
   it("Should Logout", () => {
     homePage.loginBtn.click();
     loginPage.login("admin@gmail.com", "DontTestMe");
-    dashboardPage.roleAdminAssert;
-    dashboardPage.nameAdminAssert;
+    dashboardPage.UserAdminAssert();
     dashboardPage.logout();
     loginPage.logoutAssert;
   });

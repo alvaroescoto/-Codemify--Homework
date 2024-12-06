@@ -11,6 +11,11 @@ class DashboardPage{
         this.humanButton.click();
         this.logoutButton.click();
     }
+
+    UserAdminAssert(){
+        this.nameAdminAssert;
+        this.roleAdminAssert;
+    }
 }
 
 export default new DashboardPage();
