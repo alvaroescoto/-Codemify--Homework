@@ -23,4 +23,5 @@ describe("Registration Negative", () => {
     cy.contains("Password is required").should("be.visible");
   });
 
+ 
 })

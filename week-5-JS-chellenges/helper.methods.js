@@ -1,11 +1,12 @@
 class Helpers {
   getUsersByAge(response, ageMin, ageMax) {
     const users = [];
-
     for (let i = 0; i < response.users.length; i++) {
-      const element = response.users[i];
-      if (element.age >= ageMin && element.age <= ageMax) {
-        users.push(element.name);
+        const element = response.users[i];
+        if (element.age >= ageMin && element.age <= ageMax) {
+          users.push(element.name);
+
+    
       }
     }
 

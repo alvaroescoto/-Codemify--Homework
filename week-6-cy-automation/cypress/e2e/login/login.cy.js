@@ -12,7 +12,7 @@ describe("Login Tests", () => {
     cy.contains("Login").click();
     cy.get("a p").should("have.text", "role: admin");
     cy.get('a[href="/dashboard/user/account"] h6.MuiTypography-subtitle2').should("have.text", "Admin  Adminuk");
-    cy.wait(2000);
+    
 
   });
 
@@ -26,6 +26,7 @@ describe("Login Tests", () => {
     cy.get('a[href="/dashboard/user/account"] h6.MuiTypography-subtitle2').should("have.text", "Admin  Adminuk");
     cy.get ('[type="button"]').first().click();
     cy.contains('Logout').click();
+    cy.contains('Sign in to Delek Homes').should('be.visible')
 
   });
 
