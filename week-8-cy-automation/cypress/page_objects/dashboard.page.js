@@ -16,6 +16,11 @@ class DashboardPage{
         this.nameAdminAssert;
         this.roleAdminAssert;
     }
+
+    userAssert(){
+        this.nameUserAssert;
+        this.roleUserAssert;
+    }
 }
 
 export default new DashboardPage();

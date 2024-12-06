@@ -13,7 +13,6 @@ describe("Registration Positive", () => {
   it("Should register new account", () => {
     homePage.registrationBtn.click();
     registrationPage.registration("Alvaro", "Escoto", email, password);
-    dashboardPage.nameUserAssert;
-    dashboardPage.roleUserAssert;
+    dashboardPage.userAssert();
   });
 });
