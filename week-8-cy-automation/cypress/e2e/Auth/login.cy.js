@@ -17,7 +17,8 @@ describe("Login Tests", () => {
   it("Should Logout", () => {
     homePage.loginBtn.click();
     loginPage.login("admin@gmail.com", "DontTestMe");
-    dashboardPage.UserAdminAssert();
+    dashboardPage.nameAdminAssert;
+    dashboardPage.roleAdminAssert;
     dashboardPage.logout();
     loginPage.logoutAssert;
   });
