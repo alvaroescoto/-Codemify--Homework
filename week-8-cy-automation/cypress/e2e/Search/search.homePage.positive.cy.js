@@ -1,7 +1,5 @@
-import dashboardPage from "../../page_objects/dashboard.page";
 import homePage from "../../page_objects/home.page";
 import listingPage from "../../page_objects/listing.page";
-import loginPage from "../../page_objects/login.page";
 
 describe("Search Home Page Tests", () => {
   beforeEach(() => {
