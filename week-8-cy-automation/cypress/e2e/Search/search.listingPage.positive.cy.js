@@ -44,7 +44,7 @@ describe("Search Listings Page Tests", () => {
     listingPage.moreDetailsAssert();
   });
 
-  it.only("Should search by price", () => {
+  it("Should search by price", () => {
     homePage.switchLightBtn.click();
     homePage.listingsBtn.click();
     cy.visit("/featured-listings?price=1000000-1000000");

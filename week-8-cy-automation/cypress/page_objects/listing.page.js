@@ -1,6 +1,6 @@
 class ListingPage {
   get houseTitleListingAssert() {return cy.contains('Adams House')}
-  get moreInfoBtn() {return cy.get('[href="/featured-listings/12364"]', {timeout:1000})};
+  get moreInfoBtn() {return cy.contains('More Info', {timeout: 10000}).eq(0)};
   get NumBedroomsAssert() {return cy.contains('Bedrooms: 2')}
   get SqftAssert() {return cy.contains('Square Feet: 2493')}
   get priceAssert() {return cy.contains('Asking Price: $ 1,000,000')}
