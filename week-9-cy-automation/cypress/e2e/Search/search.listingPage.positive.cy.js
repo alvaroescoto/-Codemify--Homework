@@ -28,15 +28,15 @@ describe("Search Listings Page Tests", () => {
   });
 
   it("Should search by city", () => {
-    feacturedListingPage.cityInput.type("Rivera");
+    feacturedListingPage.cityInput.type(house.searchResult.city);
     feacturedListingPage.searchBtn.click();
     cy.get('[class*="MuiGrid-grid-xs-6"]')
       .filter(':contains("City: Rivera")')
       .should("have.length", 1);
   });
 
-  it("Should search by city and check the listing details", () => {
-    feacturedListingPage.cityInput.type("Rivera");
+  it("Should search by city and check the listing and MoreInfo details", () => {
+    feacturedListingPage.cityInput.type(house.searchResult.city);
     feacturedListingPage.searchBtn.click();
     cy.get('[class*="MuiGrid-grid-xs-6"]')
       .filter(':contains("City: Rivera")')
@@ -55,6 +55,6 @@ describe("Search Listings Page Tests", () => {
 
   it("Should search by price", () => {
     cy.visit("/featured-listings?price=1000000-1000000");
-    cy.contains("Adams House");
+    cy.contains(house.searchResult.houseName);
   });
 });

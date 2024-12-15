@@ -30,8 +30,8 @@ describe("Login Tests", () => {
       .should("have.length", 1);
   });
 
-  it("Should search by city and check the listing details", () => {
-    homePage.cityInput.type("Rivera");
+  it("Should search by city and check the listing and MoreInfo details", () => {
+    homePage.cityInput.type(house.searchResult.city);
     homePage.searchBtn.click();
     house.searchResult.houseDetails.forEach((text) => {
       cy.contains(text).should("be.visible");
@@ -47,6 +47,6 @@ describe("Login Tests", () => {
 
   it("Should search by price", () => {
     cy.visit("/featured-listings?price=1000000-1000000");
-    cy.contains("Adams House");
+    cy.contains(house.searchResult.houseName);
   });
 });
