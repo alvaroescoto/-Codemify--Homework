@@ -1,4 +1,4 @@
-import house from "../../fixtures/testData/House.Credentials.Fixture.File.json";
+import house from "../../fixtures/testData/House.Details.Fixture.File.json";
 import homePage from "../../page_objects/home.page";
 import feacturedListingPage from "../../page_objects/feacturedListing.page";
 
