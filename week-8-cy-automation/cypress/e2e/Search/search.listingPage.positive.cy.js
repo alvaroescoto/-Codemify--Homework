@@ -1,53 +1,63 @@
 import homePage from "../../page_objects/home.page";
-import listingPage from "../../page_objects/listing.page";
+import listingFeacturedPage from "../../page_objects/listingFeactured.page";
 
 describe("Search Listings Page Tests", () => {
   beforeEach(() => {
     cy.visit("/");
+    homePage.switchLightBtn.click();
   });
 
   it("Should search by keyword", () => {
-    homePage.switchLightBtn.click();
     homePage.listingsBtn.click();
-    listingPage.searchInput.type("Scary");
-    listingPage.searchBtn.click();
-    listingPage.houseTitleAssert;
+    listingFeacturedPage.searchInput.type("Scary");
+    listingFeacturedPage.searchBtn.click();
+    cy.contains('Adams House')
   });
 
   it("Should search by bedrooms", () => {
-    homePage.switchLightBtn.click();
     homePage.listingsBtn.click();
-    listingPage.bedroomsBtn.click();
-    listingPage.numBedroomsInput.click();
-    listingPage.searchBtn.click();
-    listingPage.moreInfoBtn.click();
-    listingPage.NumBedroomsAssert;
+    listingFeacturedPage.bedroomsBtn.click();
+    listingFeacturedPage.numBedroomsInput.click();
+    listingFeacturedPage.searchBtn.click();
+    listingFeacturedPage.moreInfoBtn.click();
+    cy.contains('Bedrooms: 2').should("exist");
   });
 
   it("Should search by city", () => {
-    homePage.switchLightBtn.click();
     homePage.listingsBtn.click();
-    listingPage.searchInput.type("Rivera");
-    listingPage.searchBtn.click();
-    listingPage.cityUniqueAssert;
+    listingFeacturedPage.cityInput.type("Rivera");
+    listingFeacturedPage.searchBtn.click();
+    cy.get('[class*="MuiGrid-grid-xs-6"]').filter(':contains("City: Rivera")').should('have.length', 1);
   });
 
   it("Should search by city and check the listing details", () => {
-    homePage.switchLightBtn.click();
     homePage.listingsBtn.click();
-    listingPage.searchInput.type("Rivera");
-    listingPage.searchBtn.click();
-    listingPage.cityUniqueAssert;
-    listingPage.listingAssertion();
-    listingPage.cityUniqueAssert;
-    listingPage.moreInfoBtn.click();
-    listingPage.moreDetailsAssert();
+    listingFeacturedPage.cityInput.type("Rivera");
+    listingFeacturedPage.searchBtn.click();
+    cy.contains('Adams House');
+    cy.contains('8985 S Durango dr')
+    cy.contains('Zip/Code: 90111');
+    cy.contains('Garage: 1');
+    cy.contains('Bathrooms: 2');
+    cy.contains('AL');
+    cy.get('[class*="MuiGrid-grid-xs-6"]').filter(':contains("City: Rivera")').should('have.length', 1);
+    listingFeacturedPage.moreInfoBtn.click();
+    cy.contains('Adams House');
+    cy.contains('Bedrooms: 2');
+    cy.contains('Square Feet: 2493');
+    cy.contains('Asking Price: $ 1,000,000');
+    cy.contains('Lot Size: 500');
+    cy.contains('Listing Date: 03 December 2024');
+    cy.contains('Garage: 1');
+    cy.contains('Bathrooms: 2');
+    cy.contains('Realtor: Admin Adminuk');
+    cy.contains('Scary');
+    cy.contains('8985 S Durango dr')
   });
 
-  it.only("Should search by price", () => {
-    homePage.switchLightBtn.click();
+  it("Should search by price", () => {
     homePage.listingsBtn.click();
     cy.visit("/featured-listings?price=1000000-1000000");
-    listingPage.houseTitleListingAssert;
+    cy.contains('Adams House');
   });
 });
