@@ -9,12 +9,14 @@ describe("Registration", () => {
   it("should not register with an already account", () => {
     homePage.registrationBtn.click();
     registrationPage.registration('Alvaro', 'Escoto', 'alvaroescoto@icloud.com', '123456')
-    registrationPage.alreadyAccountAssert
-  });
+    cy.contains("Input data validation failed").should("be.visible")});
 
   it("Should not register without filling in required fields", () => {
     homePage.registrationBtn.click();
     registrationPage.registrationButton.click();
-    registrationPage.registNegativAssert();
+    cy.contains("First name required").should("be.visible");
+    cy.contains("Last name required").should("be.visible");
+    cy.contains("Email is required").should("be.visible");
+    cy.contains("Password is required").should("be.visible")
   });
 })

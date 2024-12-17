@@ -13,7 +13,6 @@ describe("Registration Positive", () => {
   it("Should register new account", () => {
     homePage.registrationBtn.click();
     registrationPage.registration("Alvaro", "Escoto", email, password);
-    dashboardPage.nameUserAssert;
-    dashboardPage.roleUserAssert;
-  });
+    cy.get('[class*="MuiTypography-noWrap css-1k96qjc"]').should("have.text", "Alvaro  Escoto");
+    cy.get("a p").should("have.text", "role: user")});
 });
