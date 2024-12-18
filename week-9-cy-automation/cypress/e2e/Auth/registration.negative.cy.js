@@ -1,4 +1,4 @@
-import msgCredentials from '../../fixtures/testData/Verification.Text.Fixture.File.json'
+import msgCredentials from '../../fixtures/testData/Input.Error.Messages.json'
 import user from '../../fixtures/testData/User.Credentials.Fixture.File.json'
 import homePage from '../../page_objects/home.page';
 import registrationPage from '../../page_objects/registration.page';

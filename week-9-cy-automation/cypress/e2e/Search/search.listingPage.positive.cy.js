@@ -2,7 +2,7 @@ import house from "../../fixtures/testData/House.Details.Fixture.File.json";
 import homePage from "../../page_objects/home.page";
 import feacturedListingPage from "../../page_objects/feacturedListing.page";
 
-describe("Search Listings Page Tests", () => {
+describe("Search Feactured Listings Tests", () => {
   before(() => {
     cy.visit("/");
     homePage.switchLightBtn.click();
@@ -16,21 +16,21 @@ describe("Search Listings Page Tests", () => {
   it("Should search by keyword", () => {
     feacturedListingPage.searchInput.type("Scary");
     feacturedListingPage.searchBtn.click();
-    cy.contains("Adams House");
+    cy.contains(house.searchResult.houseName);
   });
 
   it("Should search by bedrooms", () => {
     feacturedListingPage.bedroomsBtn.click();
-    feacturedListingPage.numBedroomsInput.click();
+    feacturedListingPage.bedroomsInput.click();
     feacturedListingPage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
-    cy.contains("Bedrooms: 2");
+    cy.contains(house.searchResult.numBedrooms);
   });
 
   it("Should search by city", () => {
     feacturedListingPage.cityInput.type(house.searchResult.city);
     feacturedListingPage.searchBtn.click();
-    cy.get('[class*="MuiGrid-grid-xs-6"]')
+    feacturedListingPage.cityUniqueLoc
       .filter(':contains("City: Rivera")')
       .should("have.length", 1);
   });
@@ -44,7 +44,7 @@ describe("Search Listings Page Tests", () => {
     house.searchResult.houseDetails.forEach((text) => {
       cy.contains(text).should("be.visible");
     });
-    cy.get('[class*="MuiGrid-grid-xs-6"]')
+    feacturedListingPage.cityUniqueLoc
       .filter(':contains("City: Rivera")')
       .should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();

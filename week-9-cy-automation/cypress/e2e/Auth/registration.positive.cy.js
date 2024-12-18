@@ -1,7 +1,8 @@
-import user from '../../fixtures/testData/User.Credentials.Fixture.File.json'
+import userCredent from '../../fixtures/testData/User.Credentials.Fixture.File.json'
 import { fakerDE as faker } from "@faker-js/faker";
 import homePage from "../../page_objects/home.page";
 import registrationPage from "../../page_objects/registration.page";
+import dashboardPage from '../../page_objects/dashboard.page';
 
 const fakeUser = {
   lastName: faker.name.lastName(), 
@@ -24,7 +25,7 @@ describe("Registration Positive", () => {
       fakeUser.password
     );
     registrationPage.registrationButton;
-    cy.contains(`${fakeUser.firstName} ${fakeUser.lastName}`).should("be.visible")
-    cy.get("a p").should("have.text", user.userRole);
+    dashboardPage.getFakeUser(fakeUser.firstName, fakeUser.lastName).should("be.visible")
+    dashboardPage.userRoleLoc.should("have.text", userCredent.usersRole.user);
   });
 });

@@ -2,7 +2,7 @@ import house from "../../fixtures/testData/House.Details.Fixture.File.json"
 import homePage from "../../page_objects/home.page";
 import feacturedListingPage from "../../page_objects/feacturedListing.page";
 
-describe("Login Tests", () => {
+describe("Search HomePage Tests", () => {
   beforeEach(() => {
     cy.visit("/");
     homePage.switchLightBtn.click();
@@ -16,7 +16,7 @@ describe("Login Tests", () => {
 
   it("Should search by bedrooms", () => {
     homePage.bedroomsBtn.click();
-    homePage.numBedroomsInput.click();
+    homePage.bedroomsInput.click();
     homePage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
     cy.contains(house.searchResult.numBedrooms);
@@ -25,7 +25,7 @@ describe("Login Tests", () => {
   it("Should search by city", () => {
     homePage.cityInput.type(house.searchResult.city);
     homePage.searchBtn.click();
-    cy.get('[class*="MuiGrid-grid-xs-6"]')
+    feacturedListingPage.cityUniqueLoc
       .filter(':contains("City: Rivera")')
       .should("have.length", 1);
   });
@@ -36,7 +36,7 @@ describe("Login Tests", () => {
     house.searchResult.houseDetails.forEach((text) => {
       cy.contains(text).should("be.visible");
     });
-    cy.get('[class*="MuiGrid-grid-xs-6"]')
+    feacturedListingPage.cityUniqueLoc
       .filter(':contains("City: Rivera")')
       .should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();

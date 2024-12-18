@@ -1,16 +1,14 @@
-import user from '../../fixtures/testData/User.Credentials.Fixture.File.json'
+import loginPage from '../../page_objects/login.page';
+import userCredent from '../../fixtures/testData/User.Credentials.Fixture.File.json'
 import dashboardPage from "../../page_objects/dashboard.page";
 
-describe("Login Tests", () => {
-  beforeEach(() => {
-      cy.login();
-      cy.visit("/dashboard/user/profile")
-  });
-
+describe("Logout Tests", () => {
   it("Should Logout", () => {
-    cy.get('[class*="MuiTypography-noWrap css-1k96qjc"]').should("have.text", user.name);
-    cy.get("a p").should("have.text", user.userRole);
+    cy.login();
+    cy.visit("/dashboard/user/profile")
+    dashboardPage.userNameLoc.should("have.text", userCredent.fullName);
+    dashboardPage.userRoleLoc.should("have.text", userCredent.usersRole.user);
     dashboardPage.logout();
-    cy.url().should('include', '/');
+    loginPage.logOutLoc.should('include', '/auth/login');
   });
 });

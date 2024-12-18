@@ -1,4 +1,4 @@
-import user from '../../cypress/fixtures/testData/User.Credentials.Fixture.File.json'
+import user from "../../cypress/fixtures/testData/User.Credentials.Fixture.File.json";
 
 Cypress.Commands.add(
   "login",
