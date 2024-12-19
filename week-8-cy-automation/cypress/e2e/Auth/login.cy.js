@@ -12,7 +12,6 @@ describe("Login Tests", () => {
     loginPage.login("admin@gmail.com", "DontTestMe");
     cy.get('[class*="MuiTypography-noWrap css-1k96qjc"]').should("have.text", "Admin  Adminuk")
     cy.get("a p").should("have.text", "role: realtor")
-
   });
 
   it("Should Logout", () => {
@@ -22,6 +21,5 @@ describe("Login Tests", () => {
     cy.get("a p").should("have.text", "role: realtor")
     dashboardPage.logout();
     cy.get('[src="/favicon/android-chrome-192x192.png"]')
-
   });
 });
