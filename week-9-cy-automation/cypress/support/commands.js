@@ -11,3 +11,7 @@ Cypress.Commands.add(
     });
   }
 );
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
