@@ -1,8 +1,11 @@
+import listingDetails from '../../cypress/fixtures/testData/listingsDetails.json'
 import user from "../../cypress/fixtures/testData/User.Credentials.Fixture.File.json";
 
-Cypress.Commands.add(
-  "login",
-  (email = user.email, password = user.password) => {
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
+
+Cypress.Commands.add("login",(email = user.email, password = user.password) => {
     cy.request("POST", "/api/users/login", {
       email: email,
       password: password
@@ -12,6 +15,51 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-  return false
+Cypress.Commands.add ("newListingPage", () => {
+  cy.fixture("/pictures/house.jpg").then(image => {
+    const blob = Cypress.Blob.base64StringToBlob(image, "image/jpg");
+    const formData = new FormData();
+
+    formData.append("images", blob);
+    formData.append('address', listingDetails.newListingPage.address)
+    formData.append("isPublished", true);
+    formData.append("lotSize", listingDetails.newListingPage.lotSize);
+    formData.append("sqft", listingDetails.newListingPage.sqft);
+    formData.append("garage", listingDetails.newListingPage.garage);
+    formData.append("bathrooms", listingDetails.newListingPage.bathrooms);
+    formData.append("bedrooms", listingDetails.newListingPage.bedrooms);
+    formData.append("price", listingDetails.newListingPage.price);
+    formData.append("zipCode", listingDetails.newListingPage.zipCode);
+    formData.append("state", listingDetails.newListingPage.state);
+    formData.append("city", listingDetails.newListingPage.city);
+    formData.append("description", listingDetails.newListingPage.description);
+    formData.append("title", listingDetails.newListingPage.houseName);
+
+    const token = window.localStorage.getItem("accessToken");
+
+    cy.request({
+      method: "POST",
+      url: "/api/estate-objects",
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      failOnStatusCode: false
+    }).then((response) => {
+          const listingId = JSON.parse(String.fromCharCode.apply(null, new Uint8Array(response.body))).id;
+          return listingId;
+    })
+  });
+})
+
+Cypress.Commands.add("deleteNewList", (houseId) => {
+  const token = window.localStorage.getItem("accessToken"); 
+
+ return cy.request({
+    method: "DELETE",
+    url: `/api/estate-objects/${houseId}`, 
+    headers: {
+      Authorization: `Bearer ${token}` 
+    }
+  });
 })

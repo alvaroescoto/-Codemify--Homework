@@ -1,17 +1,28 @@
-import houseInfo from "../../fixtures/testData/listingsDetails.json"
 import homePage from "../../page_objects/home.page";
 import feacturedListingPage from "../../page_objects/feacturedListing.page";
+import listingDetails from "../../fixtures/testData/listingsDetails.json";
 
-describe("Search HomePage Tests", () => {
+let houseId;
+
+describe("Search thruogh Home Page", () => {
+  before(() => {
+    cy.login();
+    cy.newListingPage().then((id) => {houseId = id;});
+  });
+
   beforeEach(() => {
     cy.visit("/");
     homePage.switchLightBtn.click();
   });
 
+  after(() => {
+    cy.deleteNewList(houseId);
+  });
+
   it("Should search by keyword", () => {
-    homePage.searchInput.first().type("scary");
+    homePage.searchInput.type(listingDetails.newListingPage.houseName);
     homePage.searchBtn.click();
-    cy.contains(houseInfo.searchResult.houseName);
+    cy.contains(listingDetails.newListingPage.houseName).should("be.visible");
   });
 
   it("Should search by bedrooms", () => {
@@ -19,27 +30,20 @@ describe("Search HomePage Tests", () => {
     homePage.bedroomsInput.click();
     homePage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
-    feacturedListingPage.bedroomsLoc.should('be.at.least', 2)
-    });
-      
+    feacturedListingPage.bedroomsLoc.should("be.at.least", 2);
+  });
+
   it("Should search by city", () => {
-    homePage.cityInput.type(houseInfo.searchResult.city);
+    homePage.cityInput.type(listingDetails.newListingPage.city);
     homePage.searchBtn.click();
-    feacturedListingPage.cityUniqueLoc
-    .filter(':contains("City: Rivera")')
-    .should("have.length", 1);
-    houseInfo.searchResult.houseDetails.forEach((text) => {
-    feacturedListingPage.houseInfo.contains(text).should("be.visible");
-    });
+    feacturedListingPage.cityUniqueLoc.should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();
-    houseInfo.moreInfo.forEach((text) => {
-      feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
-    });
+    feacturedListingPage.verifyDetails();
   });
 
   it("Should search by price", () => {
-    cy.visit("/featured-listings?price=1000000-1000000");
-    cy.contains(houseInfo.searchResult.houseName);
-    feacturedListingPage.housePriceLoc.should('contain.text', '$ 1,000,000');
+    cy.visit("/featured-listings?price=6000000-8000000");
+    cy.contains(listingDetails.newListingPage.houseName);
+    feacturedListingPage.housePriceLoc.should('contain.text', '$ 7,000,000');
   });
 });

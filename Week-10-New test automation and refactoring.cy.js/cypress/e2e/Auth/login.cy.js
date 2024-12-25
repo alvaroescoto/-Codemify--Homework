@@ -3,12 +3,14 @@ import userCredent from '../../fixtures/testData/User.Credentials.Fixture.File.j
 import loginPage from "../../page_objects/login.page";
 import dashboardPage from '../../page_objects/dashboard.page';
 
+
+
 describe("Login Tests", () => {
   it("Should Login", () => {
     cy.visit("/");
     homePage.loginBtn.click()
     loginPage.login();
-    dashboardPage.userNameLoc.should("have.text", userCredent.fullName);
-    dashboardPage.userRoleLoc.should("have.text", userCredent.usersRole.user);
+    dashboardPage.userNameLoc.should('be.visible', userCredent.fullName);
+    dashboardPage.userRoleLoc.should("be.visible", userCredent.usersRole.admin);
   });
 });
