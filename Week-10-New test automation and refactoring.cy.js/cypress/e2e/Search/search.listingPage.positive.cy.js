@@ -1,22 +1,28 @@
-import houseInfo from "../../fixtures/testData/listingsDetails.json";
 import homePage from "../../page_objects/home.page";
 import feacturedListingPage from "../../page_objects/feacturedListing.page";
+import listingDetails from "../../fixtures/testData/listingsDetails.json";
 
-describe("Search Feactured Listings Tests", () => {
+let houseId;
+
+describe("Search thruogh Feactured Listings Page", () => {
   before(() => {
-    cy.visit("/");
-    homePage.switchLightBtn.click();
-    homePage.listingsBtn.click();
+    cy.login();
+    cy.newListingPage().then((id) => {houseId = id;});
   });
 
   beforeEach(() => {
     cy.visit("/featured-listings");
+    homePage.switchLightBtn.click();
+  });
+
+  after(() => {
+    cy.deleteNewList(houseId);
   });
 
   it("Should search by keyword", () => {
-    feacturedListingPage.searchInput.type("Scary");
+    feacturedListingPage.searchInput.type(listingDetails.newListingPage.description);
     feacturedListingPage.searchBtn.click();
-    cy.contains(houseInfo.searchResult.houseName);
+    cy.contains(listingDetails.newListingPage.houseName);
   });
 
   it("Should search by bedrooms", () => {
@@ -24,27 +30,20 @@ describe("Search Feactured Listings Tests", () => {
     feacturedListingPage.bedroomsInput.click();
     feacturedListingPage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
-    feacturedListingPage.bedroomsLoc.should('be.at.least', 2);
+    feacturedListingPage.bedroomsLoc.should("be.at.least", 2);
   });
 
   it("Should search by city", () => {
-    feacturedListingPage.cityInput.type(houseInfo.searchResult.city);
+    feacturedListingPage.cityInput.type(listingDetails.newListingPage.city);
     feacturedListingPage.searchBtn.click();
-    cy.get('[class*="MuiGrid-grid-xs-6"]')
-      .filter(':contains("City: Rivera")')
-      .should("have.length", 1);
-    houseInfo.searchResult.houseDetails.forEach((text) => {
-      feacturedListingPage.houseInfo.contains(text).should("be.visible");
-    });
+    feacturedListingPage.cityUniqueLoc.should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();
-    houseInfo.moreInfo.forEach((text) => {
-      feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
-    });
+    feacturedListingPage.verifyDetails();
   });
 
-  it("Should search by price", () => {
-    cy.visit("/featured-listings?price=1000000-1000000");
-    cy.contains(houseInfo.searchResult.houseName);
-    feacturedListingPage.housePriceLoc.should('contain.text', '$ 1,000,000');
-  });
+    it("Should search by price", () => {
+      cy.visit("/featured-listings?price=6000000-8000000");
+      cy.contains(listingDetails.newListingPage.houseName);
+      feacturedListingPage.housePriceLoc.should('contain.text', '$ 7,000,000');
+    });
 });

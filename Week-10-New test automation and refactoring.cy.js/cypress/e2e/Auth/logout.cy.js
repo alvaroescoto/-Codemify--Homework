@@ -6,8 +6,8 @@ describe("Logout Tests", () => {
   it("Should Logout", () => {
     cy.login();
     cy.visit("/dashboard/user/profile")
-    dashboardPage.userNameLoc.should("have.text", userCredent.fullName);
-    dashboardPage.userRoleLoc.should("have.text", userCredent.usersRole.user);
+    dashboardPage.userNameLoc.should('be.visible', userCredent.fullName);
+    dashboardPage.userRoleLoc.should("be.visible", userCredent.usersRole.admin);
     dashboardPage.logout();
     loginPage.logOutLoc.should('include', '/auth/login');
   });

@@ -4,7 +4,7 @@ class LoginPage {
     get loginBtn() {return cy.contains("Login")}
     get logOutLoc(){return cy.url()}
 
-    login(email= "alvaroescoto@icloud.com", password="123456"){
+    login(email= "alvaroedeavila@gmail.com", password="654321"){
         this.emailInput.type(email);
         this.passwordInput.type(password);
         this.loginBtn.click();
