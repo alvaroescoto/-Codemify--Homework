@@ -14,8 +14,6 @@ class feacturedListingPage {
   get moreInfoDetail() {return cy.get('[class*="MuiGrid-grid-xs-8 MuiGrid-grid-sm-12"]')}
   get bedroomsLoc() { return cy.get('.MuiGrid-root').contains("Bedrooms:").invoke('text').then((text) => 
     {return parseInt(text.match(/Bedrooms:\s*(\d+)/)[1], 10); });}
-  verifyDetails() {listingDetails.newListingDetails.forEach((text) => {this.moreInfoDetail.contains(text).should('be.visible');});}
-  
 }
 
 export default new feacturedListingPage();
