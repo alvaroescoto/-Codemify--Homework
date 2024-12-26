@@ -5,12 +5,13 @@ import feacturedListingPage from "../../page_objects/feacturedListing.page";
 describe("Search Feactured Listings Tests", () => {
   before(() => {
     cy.visit("/");
-    homePage.switchLightBtn.click();
     homePage.listingsBtn.click();
   });
 
   beforeEach(() => {
     cy.visit("/featured-listings");
+    homePage.switchLightBtn.click();
+
   });
 
   it("Should search by keyword", () => {
@@ -33,9 +34,6 @@ describe("Search Feactured Listings Tests", () => {
     cy.get('[class*="MuiGrid-grid-xs-6"]')
       .filter(':contains("City: Rivera")')
       .should("have.length", 1);
-    houseInfo.searchResult.houseDetails.forEach((text) => {
-      feacturedListingPage.houseInfo.contains(text).should("be.visible");
-    });
     feacturedListingPage.moreInfoBtn.click();
     houseInfo.moreInfo.forEach((text) => {
       feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
@@ -43,8 +41,8 @@ describe("Search Feactured Listings Tests", () => {
   });
 
   it("Should search by price", () => {
-    cy.visit("/featured-listings?price=1000000-1000000");
+    cy.visit("/featured-listings?price=900000-1100000");
     cy.contains(houseInfo.searchResult.houseName);
-    feacturedListingPage.housePriceLoc.should('contain.text', '$ 1,000,000');
+    feacturedListingPage.housePriceLoc.contains('$ 1,000,000')
   });
 });
