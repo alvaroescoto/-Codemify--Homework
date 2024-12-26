@@ -38,7 +38,8 @@ describe("Search thruogh Home Page", () => {
     homePage.searchBtn.click();
     feacturedListingPage.cityUniqueLoc.should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();
-    feacturedListingPage.verifyDetails();
+    listingDetails.newListingDetails.forEach((text) => 
+      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible');});
   });
 
   it("Should search by price", () => {
