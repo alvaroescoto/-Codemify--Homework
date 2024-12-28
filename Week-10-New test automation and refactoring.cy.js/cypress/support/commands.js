@@ -1,11 +1,11 @@
-import listingDetails from '../../cypress/fixtures/testData/listingsDetails.json'
-import user from "../../cypress/fixtures/testData/User.Credentials.Fixture.File.json";
+import listingDetails from '../../cypress/fixtures/testData/listingsDetailsApi.json'
+import userCredentials from "../../cypress/fixtures/testData/User.Credentials.Fixture.File.json";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false
 })
 
-Cypress.Commands.add("login",(email = user.email, password = user.password) => {
+Cypress.Commands.add("login",(email = userCredentials.admin.email, password = userCredentials.admin.password) => {
     cy.request("POST", "/api/users/login", {
       email: email,
       password: password
@@ -15,7 +15,7 @@ Cypress.Commands.add("login",(email = user.email, password = user.password) => {
   }
 );
 
-Cypress.Commands.add ("newListingPage", () => {
+Cypress.Commands.add ("createLisitng", () => {
   cy.fixture("/pictures/house.jpg").then(image => {
     const blob = Cypress.Blob.base64StringToBlob(image, "image/jpg");
     const formData = new FormData();
@@ -52,7 +52,7 @@ Cypress.Commands.add ("newListingPage", () => {
   });
 })
 
-Cypress.Commands.add("deleteNewList", (houseId) => {
+Cypress.Commands.add("deleteLisitngById", (houseId) => {
   const token = window.localStorage.getItem("accessToken"); 
 
  return cy.request({

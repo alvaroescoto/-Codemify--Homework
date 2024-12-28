@@ -1,5 +1,3 @@
-import newlisting from '../../cypress/fixtures/testData/listingsDetails.json'
-
 class DashboardPage{
     get humanBtn() {return cy.get('[class*="MuiIconButton-sizeMedium css-w5qhhs"]', {timeout: 10000}).should('be.visible')}
     get logoutBtn() {return cy.contains('Logout')}
@@ -33,22 +31,6 @@ class DashboardPage{
     logout(){
         this.humanBtn.click();
         this.logoutBtn.click();     
-    }
-
-    listingPageInputs(){
-        this.titleInput.type(newlisting.newListingPage.houseName)
-        this.descriptionInput.type(newlisting.newListingPage.description)
-        this.cityInput.type(newlisting.newListingPage.city)
-        this.addressInput.type(newlisting.newListingPage.address)
-        this.zipCodeInput.type(newlisting.newListingPage.zipCode)
-        this.priceInput.type(newlisting.newListingPage.price)
-        this.bedroomsInput.type(newlisting.newListingPage.bedrooms)
-        this.bathroomsInput.type(newlisting.newListingPage.bathrooms)
-        this.garageInput.type(newlisting.newListingPage.garage)
-        this.sqftInput.type(newlisting.newListingPage.sqft)
-        this.lotSizeInput.type(newlisting.newListingPage.lotSize)
-        this.stateMenuBtn.click()
-        this.stateInput.click()
     }
 }
 

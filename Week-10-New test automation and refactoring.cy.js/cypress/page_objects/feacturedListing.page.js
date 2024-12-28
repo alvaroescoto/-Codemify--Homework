@@ -1,5 +1,3 @@
-import listingDetails from '../../cypress/fixtures/testData/listingsDetails.json'
-
 class feacturedListingPage {
 
   get moreInfoBtn() {return cy.contains('More Info', {timeout:3000}).eq(0)};
@@ -9,7 +7,7 @@ class feacturedListingPage {
   get bedroomsInput() {return cy.contains('2+')}
   get cityInput() {return cy.get('[type="text"]').eq(1)}
   get cityUniqueLoc() {return cy.get('[class*="MuiGrid-grid-xs-6"]').filter(':contains("City: Patagonia")')}
-  get housePriceLoc() {return cy.get(':nth-child(1) > .MuiPaper-root > .css-79elbk > .css-6yrxxf')}
+  get housePriceLoc() {return cy.get('[class*=" MuiPaper-rounded MuiPaper-elevation0 "]').eq(0)}
   get houseInfo() {return cy.get('[class*="MuiPaper-elevation MuiPaper-rounded "]').first()}
   get moreInfoDetail() {return cy.get('[class*="MuiGrid-grid-xs-8 MuiGrid-grid-sm-12"]')}
   get bedroomsLoc() { return cy.get('.MuiGrid-root').contains("Bedrooms:").invoke('text').then((text) => 
@@ -17,6 +15,3 @@ class feacturedListingPage {
 }
 
 export default new feacturedListingPage();
-
-
-

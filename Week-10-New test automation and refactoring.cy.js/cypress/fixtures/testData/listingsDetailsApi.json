@@ -12,19 +12,5 @@
     "garage": "1",
     "sqft": "1000",
     "lotSize": "3000"
-  },
-
-  "newListingDetails": [
-    "Pacify house",
-    "8985 S Durango dr",
-    "Asking Price: $ 7,000,000",
-    "Lot Size: 3000",
-    "Garage: 1",
-    "Bathrooms: 2",
-    "Square Feet: 1000",
-    "Listing Date: 26 December 2024",
-    "Bedrooms: 2",
-    "Realtor: Alvaro De Avila",
-    "cool house"
-  ]
+  }
 }

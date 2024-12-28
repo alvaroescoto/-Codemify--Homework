@@ -1,13 +1,15 @@
 import homePage from "../../page_objects/home.page";
 import feacturedListingPage from "../../page_objects/feacturedListing.page";
-import listingDetails from "../../fixtures/testData/listingsDetails.json";
+import listingDetails from "../../fixtures/testData/listingsDetailsUi.json";
 
 let houseId;
 
 describe("Search thruogh Home Page", () => {
   before(() => {
     cy.login();
-    cy.newListingPage().then((id) => {houseId = id;});
+    cy.createLisitng().then((id) => {  
+    houseId = id;
+    });
   });
 
   beforeEach(() => {
@@ -16,7 +18,7 @@ describe("Search thruogh Home Page", () => {
   });
 
   after(() => {
-    cy.deleteNewList(houseId);
+    cy.deleteLisitngById(houseId);
   });
 
   it("Should search by keyword", () => {
@@ -38,13 +40,15 @@ describe("Search thruogh Home Page", () => {
     homePage.searchBtn.click();
     feacturedListingPage.cityUniqueLoc.should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();
-    listingDetails.newListingDetails.forEach((text) => 
-      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible');});
+    listingDetails.newListingDetails.forEach((text) => {
+      feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
+    });
   });
 
   it("Should search by price", () => {
     cy.visit("/featured-listings?price=6000000-8000000");
-    cy.contains(listingDetails.newListingPage.houseName);
-    feacturedListingPage.housePriceLoc.should('contain.text', '$ 7,000,000');
+    feacturedListingPage.housePriceLoc.invoke("text")
+      .should("include", "$ 7,000,000")
+      .and("include", listingDetails.newListingPage.houseName);
   });
 });

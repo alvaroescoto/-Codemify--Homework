@@ -1,4 +1,4 @@
-import userCredent from '../../fixtures/testData/User.Credentials.Fixture.File.json'
+import userCredentials from '../../fixtures/testData/User.Credentials.Fixture.File.json'
 import { fakerDE as faker } from "@faker-js/faker";
 import homePage from "../../page_objects/home.page";
 import registrationPage from "../../page_objects/registration.page";
@@ -26,6 +26,6 @@ describe("Registration Positive", () => {
     );
     registrationPage.registrationButton;
     dashboardPage.getFakeUser(fakeUser.firstName, fakeUser.lastName).should("be.visible")
-    dashboardPage.userRoleLoc.should("have.text", userCredent.usersRole.user);
+    dashboardPage.userRoleLoc.should("have.text", userCredentials.usersRole.user);
   });
 });
