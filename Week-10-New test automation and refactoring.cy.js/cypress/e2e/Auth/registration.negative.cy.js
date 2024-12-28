@@ -1,5 +1,5 @@
-import msgCredentials from '../../fixtures/testData/Input.Error.Messages.json'
-import user from '../../fixtures/testData/User.Credentials.Fixture.File.json'
+import msgCredentials from '../../fixtures/testData/authorization.Errors.Text.json'
+import userCredentials from '../../fixtures/testData/User.Credentials.Fixture.File.json'
 import homePage from '../../page_objects/home.page';
 import registrationPage from '../../page_objects/registration.page';
 
@@ -14,7 +14,8 @@ describe("Registration", () => {
   });
 
   it("should not register with an already account", () => {
-    registrationPage.registration(user.firstName, user.lastName, user.email, user.password)
+    registrationPage.registration
+      (userCredentials.admin.firstName, userCredentials.admin.lastName, userCredentials.admin.email, userCredentials.admin.password)
     cy.contains(msgCredentials.invalidUser).should("be.visible")
   });
 
