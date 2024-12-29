@@ -6,7 +6,7 @@ import dashboardPage from '../../page_objects/dashboard.page';
 describe("Login Tests", () => {
   it("Should Login", () => {
     cy.visit("/");
-    homePage.loginBtn.click()
+    homePage.loginBtn.click();
     loginPage.login();
     dashboardPage.userNameLoc.should('be.visible', userCredentials.admin.fullName);
     dashboardPage.userRoleLoc.should("be.visible", userCredentials.usersRole.admin);
