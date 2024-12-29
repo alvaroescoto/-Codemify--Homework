@@ -49,6 +49,6 @@ describe("Search thruogh Home Page", () => {
     cy.visit("/featured-listings?price=6000000-8000000");
     feacturedListingPage.housePriceLoc.invoke("text")
       .should("include", "$ 7,000,000")
-      .and("include", listingDetails.newListingPage.houseName);
+      .and("include", listingDetails.newListingPage.houseName)
   });
 });
