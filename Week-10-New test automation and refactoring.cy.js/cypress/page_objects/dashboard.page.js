@@ -11,7 +11,7 @@ class DashboardPage{
     get dropImage() {return cy.get('[role="presentation"]').selectFile('cypress/fixtures/pictures/house.jpg', { action: 'drag-drop' })}
     get imageLoc() {return cy.get('[class="MuiBox-root css-6jrdpz"]')}
     get publishBtn() {return cy.get('[type="checkbox"]').eq(1)};
-    get priceInput() {return cy.get('[name="price"]')}
+    get priceInput() {return cy.get('[name="price"]')};
     get bedroomsInput() {return cy.get('[name="bedrooms"]')}
     get bathroomsInput() {return cy.get('[name="bathrooms"]')}
     get bedroomsInput() {return cy.get('[name="bedrooms"]')}
