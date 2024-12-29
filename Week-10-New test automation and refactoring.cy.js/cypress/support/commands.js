@@ -21,7 +21,7 @@ Cypress.Commands.add ("createLisitng", () => {
     const formData = new FormData();
 
     formData.append("images", blob);
-    formData.append('address', listingDetails.newListingPage.address)
+    formData.append('address', listingDetails.newListingPage.address);
     formData.append("isPublished", true);
     formData.append("lotSize", listingDetails.newListingPage.lotSize);
     formData.append("sqft", listingDetails.newListingPage.sqft);
