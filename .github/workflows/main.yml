@@ -1,22 +1,37 @@
-name: CI Workflow
+name: E2E Tests
 
 on:
   push:
     branches:
       - main
-      - week-10-automation
+      - '**'
   pull_request:
     branches:
-      - main
-      - week-10-automation
+      - '**'
 
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Run tests
-      run: echo "Run your tests here!"
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          config-file: cypress.config.js
+
+      - name: Upload Cypress Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-results
+          path: cypress/results
