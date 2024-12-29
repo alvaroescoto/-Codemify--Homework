@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - week-10-automation
   pull_request:
     branches:
       - main
+      - week-10-automation
 
 jobs:
   build:
