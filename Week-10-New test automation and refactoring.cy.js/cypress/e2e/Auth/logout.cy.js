@@ -1,6 +1,6 @@
 import loginPage from '../../page_objects/login.page';
 import userCredentials from '../../fixtures/testData/User.Credentials.Fixture.File.json'
-import dashboardPage from "../../page_objects/dashboard.page";
+import dashboardPage from "../../page_objects/dashboard.page"
 
 describe("Logout Tests", () => {
   it("Should Logout", () => {
