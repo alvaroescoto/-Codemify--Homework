@@ -9,6 +9,6 @@ describe("Logout Tests", () => {
     dashboardPage.userNameLoc.should('be.visible', userCredentials.admin.fullName);
     dashboardPage.userRoleLoc.should("be.visible", userCredentials.usersRole.admin);
     dashboardPage.logout();
-    loginPage.logOutLoc.should('include', '/auth/login');
+    loginPage.logOutLoc.should('include', '/auth/login')
   });
 });
