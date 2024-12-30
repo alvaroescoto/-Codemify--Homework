@@ -1,6 +1,6 @@
 import homePage from "../../page_objects/home.page";
 import listingDetails from "../../fixtures/testData/listingsDetailsUi.json";
-import FeacturedListingPage from "../../page_objects/test.page";
+import FeacturedListingPage from "../../page_objects/FeacturedListing.page";
 
 let houseId;
 
