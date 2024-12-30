@@ -21,7 +21,7 @@ describe("Create a new Listing Page", () => {
     dashboardPage.realEstCreateBtn.click();
     dashboardPage.dropImage;
     dashboardPage.titleInput.type(listingsDetails.newListingPage.houseName);
-    dashboardPage.descriptionInput.type(listingsDetails.newListingPage.description);
+    dashboardPage.descriptionInput.type(listingsDetails.newListingPage.description)
     dashboardPage.cityInput.type(listingsDetails.newListingPage.city);
     dashboardPage.addressInput.type(listingsDetails.newListingPage.address);
     dashboardPage.zipCodeInput.type(listingsDetails.newListingPage.zipCode);
