@@ -44,7 +44,7 @@ describe("Create a new Listing Page", () => {
     homePage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
     listingsDetails.newListingDetails.forEach((text) => 
-      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible')})
+      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible')});
     cy.url().then((url) => {houseId = url.split("/").pop(); });
   });
 });
