@@ -24,8 +24,8 @@ describe("Create a new Listing Page", () => {
     dashboardPage.descriptionInput.type(listingsDetails.newListingPage.description);
     dashboardPage.cityInput.type(listingsDetails.newListingPage.city);
     dashboardPage.addressInput.type(listingsDetails.newListingPage.address);
-    dashboardPage.zipCodeInput.type(listingsDetails.newListingPage.zipCode)
-    dashboardPage.priceInput.type(listingsDetails.newListingPage.price)
+    dashboardPage.zipCodeInput.type(listingsDetails.newListingPage.zipCode);
+    dashboardPage.priceInput.type(listingsDetails.newListingPage.price);
     dashboardPage.bedroomsInput.type(listingsDetails.newListingPage.bedrooms)
     dashboardPage.bathroomsInput.type(listingsDetails.newListingPage.bathrooms)
     dashboardPage.garageInput.type(listingsDetails.newListingPage.garage)
