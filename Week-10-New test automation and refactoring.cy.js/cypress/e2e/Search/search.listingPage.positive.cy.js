@@ -39,7 +39,7 @@ describe("Search thruogh Feactured Listings Page", () => {
     feacturedListingPage.cityUniqueLoc.should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();
     listingDetails.newListingDetails.forEach((text) => 
-      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible');});
+      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible')});
   });
 
   it("Should search by price", () => {
