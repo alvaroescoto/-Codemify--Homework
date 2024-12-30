@@ -1,7 +1,7 @@
 import dashboardPage from "../../page_objects/dashboard.page";
 import listingsDetails from "../../fixtures/testData/listingsDetailsUi.json";
 import homePage from "../../page_objects/home.page";
-import feacturedListingPage from "../../page_objects/FeacturedListing.page";
+import FeacturedListingPage from "../../page_objects/FeacturedListing.page";
 
 let houseId;
 
@@ -42,9 +42,9 @@ describe("Create a new Listing Page", () => {
     cy.visit("/", { timeout: 10000 });
     homePage.searchInput.type(listingsDetails.newListingPage.houseName);
     homePage.searchBtn.click();
-    feacturedListingPage.moreInfoBtn.click();
+    FeacturedListingPage.moreInfoBtn.click();
     listingsDetails.newListingDetails.forEach((text) => {
-      feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
+      FeacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
     });
     cy.url().then((url) => {
       houseId = url.split("/").pop();
