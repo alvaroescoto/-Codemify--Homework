@@ -23,7 +23,7 @@ describe("Search thruogh Home Page", () => {
 
   it("Should search by keyword", () => {
     homePage.searchInput.type(listingDetails.newListingPage.houseName);
-    homePage.searchBtn.click()
+    homePage.searchBtn.click();
     cy.contains(listingDetails.newListingPage.houseName).should("be.visible");
   });
 
