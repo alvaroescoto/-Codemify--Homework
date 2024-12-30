@@ -1,4 +1,4 @@
-class feacturedListingPage {
+class FeacturedListingPage {
 
   get moreInfoBtn() {return cy.contains('More Info', {timeout:3000}).eq(0)};
   get searchInput() {return cy.get('[type="text"]').eq(0)}
@@ -14,4 +14,4 @@ class feacturedListingPage {
     {return parseInt(text.match(/Bedrooms:\s*(\d+)/)[1], 10); });}
 }
 
-export default new feacturedListingPage();
+export default new FeacturedListingPage();

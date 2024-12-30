@@ -13,7 +13,7 @@ class DashboardPage{
     get publishBtn() {return cy.get('[type="checkbox"]').eq(1)};
     get priceInput() {return cy.get('[name="price"]')};
     get bedroomsInput() {return cy.get('[name="bedrooms"]')}
-    get bathroomsInput() {return cy.get('[name="bathrooms"]')}
+    get bathroomsInput() {return cy.get('[name="bathrooms"]')};
     get bedroomsInput() {return cy.get('[name="bedrooms"]')}
     get garageInput() {return cy.get('[name="garage"]')}
     get sqftInput() {return cy.get('[name="sqft"]')}
