@@ -26,7 +26,7 @@ describe("Search thruogh Feactured Listings Page", () => {
   });
 
   it("Should search by bedrooms", () => {
-    feacturedListingPage.bedroomsBtn.click();
+    feacturedListingPage.bedroomsBtn.click()
     feacturedListingPage.bedroomsInput.click();
     feacturedListingPage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
