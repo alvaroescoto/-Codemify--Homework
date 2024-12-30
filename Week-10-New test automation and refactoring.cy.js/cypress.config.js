@@ -6,11 +6,6 @@ module.exports = defineConfig({
     baseUrl: "https://dev.delekhomes.com/",
     viewportWidth: 1400,
     viewportHeight: 1200,
-    reporter: "junit", // Use JUnit reporter
-    reporterOptions: {
-      mochaFile: "cypress/results/results-[hash].xml",
-    },
-    
   }
 });
 

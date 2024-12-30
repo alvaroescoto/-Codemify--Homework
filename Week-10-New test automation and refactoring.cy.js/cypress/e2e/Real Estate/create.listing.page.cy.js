@@ -13,7 +13,7 @@ describe("Create a new Listing Page", () => {
   });
 
   after(() => {
-    cy.deleteLisitngById(houseId)
+    cy.deleteLisitngById(houseId);
   });
 
   it("should create a new listing Page", () => {
