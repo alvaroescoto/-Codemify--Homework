@@ -24,8 +24,8 @@ class DashboardPage{
     get addressInput() {return cy.get('[name="address"]')}
     get zipCodeInput() {return cy.get('[name="zipCode"]')}
     get stateMenuBtn() {return cy.get('[aria-haspopup="listbox"]')}
-    get stateInput() {return cy.contains('Alaska')}
-    get postBtn() {return cy.get('[type="submit"]')}
+    get stateInput() {return cy.contains('Alaska')};
+    get postBtn() {return cy.get('[type="submit"]')};
     getFakeUser (firstName, lastName) {return cy.contains(`${firstName} ${lastName}`)};
 
     logout(){
