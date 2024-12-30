@@ -18,7 +18,7 @@ describe("Search thruogh Home Page", () => {
   });
 
   after(() => {
-    cy.deleteLisitngById(houseId);
+    cy.deleteLisitngById(houseId)
   });
 
   it("Should search by keyword", () => {
