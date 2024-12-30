@@ -1,4 +1,5 @@
 name: E2E on Chrome
+
 on:
   workflow_dispatch:
     inputs:
@@ -7,6 +8,7 @@ on:
         required: false
   pull_request:
     types: [opened, reopened, edited, synchronize]
+
 jobs:
   Cypress-Run:
     runs-on: ubuntu-latest
@@ -15,8 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - name: Cypress run
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6.6.1
         with:
           browser: chrome
-          working-directory: ./week-10-automation
+          working-directory: ./Week-10-New test automation and refactoring.cy.js
+          spec: cypress/e2e/**/*.cy.{js,jsx,ts,tsx}
