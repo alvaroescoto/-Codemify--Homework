@@ -21,7 +21,7 @@ describe("Registration", () => {
 
   it("Should not register without filling in required fields", () => {
     registrationPage.registrationButton.click();
-    cy.contains(msgCredentials.firstNameReq).should("be.visible")
+    cy.contains(msgCredentials.firstNameReq).should("be.visible");
     cy.contains(msgCredentials.lastNameReq).should("be.visible")
     cy.contains(msgCredentials.emailReq).should("be.visible")
     cy.contains(msgCredentials.passwordReq).should("be.visible")
