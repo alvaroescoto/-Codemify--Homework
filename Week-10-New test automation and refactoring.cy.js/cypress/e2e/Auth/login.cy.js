@@ -8,7 +8,7 @@ describe("Login Tests", () => {
     cy.visit("/");
     homePage.loginBtn.click();
     loginPage.login();
-    dashboardPage.userNameLoc.should('be.visible', userCredentials.admin.fullName);
+    dashboardPage.userNameLoc.should('be.visible', userCredentials.admin.fullName)
     dashboardPage.userRoleLoc.should("be.visible", userCredentials.usersRole.admin);
   });
 });
