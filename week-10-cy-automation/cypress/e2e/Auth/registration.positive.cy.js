@@ -25,7 +25,7 @@ describe("Registration Positive", () => {
       fakeUser.password
     );
     registrationPage.registrationButton;
-    dashboardPage.getFakeUser(fakeUser.firstName, fakeUser.lastName).should("be.visible")
+    dashboardPage.getFakeUser(fakeUser.firstName, fakeUser.lastName).should("be.visible");
     dashboardPage.userRoleLoc.should("have.text", userCredentials.usersRole.user);
   });
 });
