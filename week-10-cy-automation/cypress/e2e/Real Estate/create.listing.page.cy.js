@@ -1,7 +1,7 @@
 import dashboardPage from "../../page_objects/dashboard.page";
 import listingsDetails from "../../fixtures/testData/listingsDetailsUi.json";
 import homePage from "../../page_objects/home.page";
-import FeacturedListingPage from "../../page_objects/FeacturedListing.page";
+import FeacturedListingPage from "../../page_objects/test.page";
 
 let houseId;
 
