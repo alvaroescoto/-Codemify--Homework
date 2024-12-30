@@ -1,5 +1,5 @@
 import homePage from "../../page_objects/home.page";
-import feacturedListingPage from "../../page_objects/feacturedListing.page";
+import feacturedListingPage from "../../page_objects/FeacturedListing.page";
 import listingDetails from "../../fixtures/testData/listingsDetailsUi.json";
 
 let houseId;
@@ -7,8 +7,8 @@ let houseId;
 describe("Search thruogh Home Page", () => {
   before(() => {
     cy.login();
-    cy.createLisitng().then((id) => {  
-    houseId = id;
+    cy.createLisitng().then((id) => {
+      houseId = id;
     });
   });
 
@@ -18,7 +18,7 @@ describe("Search thruogh Home Page", () => {
   });
 
   after(() => {
-    cy.deleteLisitngById(houseId)
+    cy.deleteLisitngById(houseId);
   });
 
   it("Should search by keyword", () => {
@@ -47,8 +47,9 @@ describe("Search thruogh Home Page", () => {
 
   it("Should search by price", () => {
     cy.visit("/featured-listings?price=6000000-8000000");
-    feacturedListingPage.housePriceLoc.invoke("text")
+    feacturedListingPage.housePriceLoc
+      .invoke("text")
       .should("include", "$ 7,000,000")
-      .and("include", listingDetails.newListingPage.houseName)
+      .and("include", listingDetails.newListingPage.houseName);
   });
 });

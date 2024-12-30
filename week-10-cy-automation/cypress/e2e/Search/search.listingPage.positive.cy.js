@@ -1,5 +1,5 @@
 import homePage from "../../page_objects/home.page";
-import feacturedListingPage from "../../page_objects/feacturedListing.page";
+import feacturedListingPage from "../../page_objects/FeacturedListing.page";
 import listingDetails from "../../fixtures/testData/listingsDetailsUi.json";
 
 let houseId;
@@ -7,7 +7,9 @@ let houseId;
 describe("Search thruogh Feactured Listings Page", () => {
   before(() => {
     cy.login();
-    cy.createLisitng().then((id) => {houseId = id;});
+    cy.createLisitng().then((id) => {
+      houseId = id;
+    });
   });
 
   beforeEach(() => {
@@ -20,13 +22,15 @@ describe("Search thruogh Feactured Listings Page", () => {
   });
 
   it("Should search by keyword", () => {
-    feacturedListingPage.searchInput.type(listingDetails.newListingPage.description);
+    feacturedListingPage.searchInput.type(
+      listingDetails.newListingPage.description
+    );
     feacturedListingPage.searchBtn.click();
     cy.contains(listingDetails.newListingPage.houseName);
   });
 
   it("Should search by bedrooms", () => {
-    feacturedListingPage.bedroomsBtn.click()
+    feacturedListingPage.bedroomsBtn.click();
     feacturedListingPage.bedroomsInput.click();
     feacturedListingPage.searchBtn.click();
     feacturedListingPage.moreInfoBtn.click();
@@ -38,13 +42,15 @@ describe("Search thruogh Feactured Listings Page", () => {
     feacturedListingPage.searchBtn.click();
     feacturedListingPage.cityUniqueLoc.should("have.length", 1);
     feacturedListingPage.moreInfoBtn.click();
-    listingDetails.newListingDetails.forEach((text) => 
-      {feacturedListingPage.moreInfoDetail.contains(text).should('be.visible')});
+    listingDetails.newListingDetails.forEach((text) => {
+      feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
+    });
   });
 
   it("Should search by price", () => {
     cy.visit("/featured-listings?price=6000000-8000000");
-    feacturedListingPage.housePriceLoc.invoke("text")
+    feacturedListingPage.housePriceLoc
+      .invoke("text")
       .should("include", "$ 7,000,000")
       .and("include", listingDetails.newListingPage.houseName);
   });

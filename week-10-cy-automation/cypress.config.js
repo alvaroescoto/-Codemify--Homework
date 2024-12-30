@@ -8,7 +8,3 @@ module.exports = defineConfig({
     viewportHeight: 1200,
   }
 });
-
-
-
-
