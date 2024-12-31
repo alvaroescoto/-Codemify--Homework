@@ -1,5 +1,5 @@
 import homePage from "../../page_objects/home.page";
-import FeacturedListingPage from "../../page_objects/FeacturedListing.page";
+import feacturedListingPage from "../../page_objects/feacturedListing.page"
 import listingDetails from "../../fixtures/testData/listingsDetailsUi.json";
 
 let houseId;
@@ -31,23 +31,23 @@ describe("Search thruogh Home Page", () => {
     homePage.bedroomsBtn.click();
     homePage.bedroomsInput.click();
     homePage.searchBtn.click();
-    FeacturedListingPage.moreInfoBtn.click();
-    FeacturedListingPage.bedroomsLoc.should("be.at.least", 2);
+    feacturedListingPage.moreInfoBtn.click();
+    feacturedListingPage.bedroomsLoc.should("be.at.least", 2);
   });
 
   it("Should search by city", () => {
     homePage.cityInput.type(listingDetails.newListingPage.city);
     homePage.searchBtn.click();
-    FeacturedListingPage.cityUniqueLoc.should("have.length", 1);
-    FeacturedListingPage.moreInfoBtn.click();
+    feacturedListingPage.cityUniqueLoc.should("have.length", 1);
+    feacturedListingPage.moreInfoBtn.click();
     listingDetails.newListingDetails.forEach((text) => {
-      FeacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
+      feacturedListingPage.moreInfoDetail.contains(text).should("be.visible");
     });
   });
 
   it("Should search by price", () => {
     cy.visit("/featured-listings?price=6000000-8000000");
-    FeacturedListingPage.housePriceLoc
+    feacturedListingPage.housePriceLoc
       .invoke("text")
       .should("include", "$ 7,000,000")
       .and("include", listingDetails.newListingPage.houseName);
